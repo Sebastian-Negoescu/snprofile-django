@@ -6,6 +6,3 @@ from .models import Job
 @admin.register(Job)
 class MyJobs(admin.ModelAdmin):
     list_display = ["title", "company"]
-
-    # def __str__(self):
-    #     return self.title, self.company

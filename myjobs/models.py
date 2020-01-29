@@ -8,6 +8,7 @@ class Job(models.Model):
     description = models.TextField(max_length=300)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=True, null=True)
-
-    # def __str__(self):
-    #     return f"{self.title} at {self.company}"
+    photo = models.ImageField(upload_to="images/", null=True)
+    
+    def __str__(self):
+        return f"{self.title} at {self.company}"

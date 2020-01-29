@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 from myjobs import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^$", views.home, name="home"),
-    url(r"^myjobs/(\d+)/", views.job_detail, name="job_detail")
+    url(r"^myjobs/(\d+)/", views.job_detail, name="job_detail"),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
