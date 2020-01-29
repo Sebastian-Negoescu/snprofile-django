@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Sebi Negoescu's Profile</title>
+</head>
+<body>
+    <h3>Hello, friend!</h3>
+    <p style="font-style:italic">This page is under construction</p>
+    <ol>
+    {% for job in jobs %}
+        <li>
+            <a href="">
+                <h4>{{ job.title }} at {{ job.company }}</h4>
+            </a>
+            <h5>{{ job.location }}</h5>
+            {% if job.end_date %}
+                <h5>Period: {{ job.start_date }} - {{ job.end_date }}</h5>
+            {% else %}
+                <h5>Period: {{ job.start_date }} - Present</h5>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ol>
+</body>
