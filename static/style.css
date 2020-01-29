@@ -1,0 +1,10 @@
+.key {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold
+}
+
+.value {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+}

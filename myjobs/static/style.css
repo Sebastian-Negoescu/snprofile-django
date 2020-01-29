@@ -1,0 +1,10 @@
+.key {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold
+}
+
+.value {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-style: italic;
+}

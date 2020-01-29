@@ -20,5 +20,6 @@ from myjobs import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url("^$", views.home, name="home")
+    url(r"^$", views.home, name="home"),
+    url(r"^myjobs/(\d+)/", views.job_detail, name="job_detail")
 ]

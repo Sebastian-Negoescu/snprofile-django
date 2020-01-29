@@ -8,7 +8,7 @@
     <ol>
     {% for job in jobs %}
         <li>
-            <a href="">
+            <a href="{% url 'job_detail'  job.id %}">
                 <h4>{{ job.title }} at {{ job.company }}</h4>
             </a>
             <h5>{{ job.location }}</h5>
