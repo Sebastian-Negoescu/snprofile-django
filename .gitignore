@@ -1,2 +1,5 @@
-myprofile/__pycache__
-azure_infra/paas/.terraform
+myprofile/__pycache__/
+myjobs/__pycache__/
+azure_infra/paas/.terraform/
+azure_infra/paas/secrets.tfvars
+azure_infra/paas/terraform.tfstate
