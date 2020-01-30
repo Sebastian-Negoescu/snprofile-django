@@ -1,0 +1,1 @@
+prefix = "snprofile-django"
