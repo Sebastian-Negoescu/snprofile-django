@@ -4,3 +4,4 @@ azure_infra/paas/.terraform/
 azure_infra/paas/secrets.tfvars
 azure_infra/paas/terraform.tfstate
 azure_infra/paas/plans/
+azure_infra/paas/terraform.tfstate.backup
