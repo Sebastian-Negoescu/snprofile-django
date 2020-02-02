@@ -9,16 +9,16 @@ $secret_content = Get-Content -Path $secret_file
 ForEach ($line in $secret_content) {
     $lineSplit = $line.Split(' ')
     If ($lineSplit[0].ToString() -eq "subscription_id") {
-        $subId = $lineSplit[2]
+        $subId = ($lineSplit[2]).Trim('"')
     }
     elseif ($lineSplit[0].ToString() -eq "tenant_id") {
-        $tenant_id = $lineSplit[2]
+        $tenant_id = ($lineSplit[2]).Trim('"')
     }
     elseif ($lineSplit[0].ToString() -eq "client_id") {
-        $spId = $lineSplit[2]
+        $spId = ($lineSplit[2]).Trim('"')
     }
     Else { #($lineSplit[0].ToString() -eq "client_secret")
-        $spPwd = $lineSplit[2]
+        $spPwd = ($lineSplit[2]).Trim('"')
     }
 }
 
