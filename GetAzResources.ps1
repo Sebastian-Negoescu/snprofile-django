@@ -14,8 +14,8 @@ $output_content = Get-Content -Path $terraform_output
 
 [string]$rgName;
 [string]$waName;
-[string]$dev;
-[string]$feat;
+[string]$dev_slot;
+[string]$feat_slot;
 ForEach ($line in $output_content) {
     $lineSplit = $line.Split(' ')
     If ($lineSplit[0].ToString() -eq "rg_name") {
@@ -26,10 +26,10 @@ ForEach ($line in $output_content) {
             $waName = $lineSplit[2]
         }
         elseif ($lineSplit[0].ToString() -like "*dev") {
-            $dev = $lineSplit[2]
+            $dev_slot = $lineSplit[2]
         }
         elseif ($lineSplit[0].ToString() -like "*feature") {
-            $feat = $lineSplit[2]
+            $feat_slot = $lineSplit[2]
         }
         Else {
             Write-Host "Get your options straight here... Ain't no other possibility."
@@ -38,5 +38,5 @@ ForEach ($line in $output_content) {
 }
 Write-Host "RG's Name: $($rgName)" -ForegroundColor Black -BackgroundColor Yellow
 Write-Host "WebApp's Name: $($waName)" -ForegroundColor Black -BackgroundColor Yellow
-Write-Host "DEV Slot: $($dev)" -ForegroundColor Black -BackgroundColor Yellow
-Write-Host "FEAT Slot: $($feat)" -ForegroundColor Black -BackgroundColor Yellow
+Write-Host "DEV Slot: $($dev_slot)" -ForegroundColor Black -BackgroundColor Yellow
+Write-Host "FEAT Slot: $($feat_slot)" -ForegroundColor Black -BackgroundColor Yellow
