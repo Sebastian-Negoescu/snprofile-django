@@ -35,3 +35,13 @@ resource "azurerm_app_service_slot" "webapp-feature" {
 #     branch = "master"
 #     is_manual_integration = true
 # }
+
+output "webapp_name" {
+    value = "${azurerm_app_service.webapp.name}"
+}
+output "webapp_dev" {
+    value = "${azurerm_app_service_slot.webapp-develop.name}"
+}
+output "webapp_feature" {
+    value = "${azurerm_app_service_slot.webapp-feature.name}"
+}
