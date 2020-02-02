@@ -1,5 +1,23 @@
-$gitrepo="<replace-with-URL-of-your-own-GitHub-repo>"
-$gittoken="<replace-with-a-GitHub-access-token>" 
+$location = Get-Location
+$file = Get-Content $location"\secrets.txt"
+
+[string] $gitrepo;
+[string] $gittoken;
+
+ForEach ($line in $file) {
+    $lineSplit = $line.Split(' ')
+    If ($lineSplit[0] -eq "gitrepo".ToString()) {
+        $gitrepo = $lineSplit[2]
+    }
+    Else {
+        $gittoken = $lineSplit[2]
+    }
+}
+
+Write-Host "Our GitHub Repo is: $($gitrepo)"
+Write-Host "Our GitHub Token is:..."
+Write-Host "Stop tripping - ain't no one showing the Token, let's be real now... :)"
+
 $rgName = ""
 $waName = ""
 $waId = (Get-AzWebApp -Name $waName -ResourceGroupName $rgName).Id
