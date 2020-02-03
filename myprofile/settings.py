@@ -25,8 +25,8 @@ SECRET_KEY = '_19s_i8#cekj=+blv&r2fyv0)h$k9)4_+my7=p-v4nm5rmw$ul'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "snprofile-django-app-feature.azurewebsites.net", "snprofile-django-app-develop.azurewebsites.net","snprofile-django-app.azurewebsites.net"]
-
+#ALLOWED_HOSTS = ["localhost", "snprofile-django-app-feature.azurewebsites.net", "snprofile-django-app-develop.azurewebsites.net","snprofile-django-app.azurewebsites.net"]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
