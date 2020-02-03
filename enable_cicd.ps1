@@ -67,8 +67,6 @@ Set-AzResource -PropertyObject $TokenObject -ResourceId /providers/Microsoft.Web
 ### Configure GitHub deployment on a branch per according slot logic ###
 ########################################################################
 
-$options = $slotName.Keys;
-
 ForEach ($item in $slotName.Keys) {
     $PropertiesObject = @{
         repoUrl = $($gitrepo);
