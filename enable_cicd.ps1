@@ -21,6 +21,7 @@ ForEach ($line in $file) {
     }
     Else {
         $gittoken = ($lineSplit[2]).Trim('"')
+        $gittoken = $gittoken | ConvertTo-SecureString -AsPlainText -Force # Making the token a secure string
     }
 }
 
@@ -55,25 +56,28 @@ If ( $null -ne ($waId -and $slotName)) {
 }
 
 ### SET GitHub
-$PropertiesObject = @{
-    token = $($gittoken);
+$TokenObject = @{
+    # .NET to retrieve the Secure String Objects's value
+    token = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR((($gittoken))))
 }
-Set-AzResource -PropertyObject $PropertiesObject -ResourceId /providers/Microsoft.Web/sourcecontrols/GitHub `
+Set-AzResource -PropertyObject $TokenObject -ResourceId /providers/Microsoft.Web/sourcecontrols/GitHub `
 -ApiVersion 2015-08-01 -Force
 
-### Introduce a ForEach method to parse every slot with its respecrtive branch with a For $i
-### Configure GitHub deployment from your GitHub repo and deploy once.
+########################################################################
+### Configure GitHub deployment on a branch per according slot logic ###
+########################################################################
 
 $options = $slotName.Keys;
-$options
 
 ForEach ($item in $slotName.Keys) {
     $PropertiesObject = @{
-        repoUrl = "$($gitrepo)";
-        branch = "$($branch.$item)";
+        repoUrl = $($gitrepo);
+        branch = $($branch.$item);
     }
 
+    $resourceName = ($waName).ToString() + "/" + ($slotName.$item).ToString() + "/web"
+
     Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName $rgName `
-    -ResourceType Microsoft.Web/sites/slots/sourcecontrols -ResourceName $waName/($slotName).$item `
-    -ApiVersion 2015-08-01 -Force
+    -ResourceType Microsoft.Web/sites/slots/sourcecontrols -ResourceName $resourceName `
+    -ApiVersion 2016-08-01 -Force
 }
