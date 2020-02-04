@@ -1,0 +1,4 @@
+rg_name = snprofile-django-rg
+webapp_dev = develop
+webapp_feature = feature
+webapp_name = snprofile-django-app
