@@ -32,9 +32,12 @@ Write-Host "Stop tripping - ain't no one showing the Token, let's be real now...
 
 ################################################
 ########### LOAD THE AZURE RESOURCES ###########
+##################### &&& ######################
+########### LOAD THE PYTHON_ON SCRIPT ##########
 ################################################
 
 . .\GetAzResources.ps1
+. .\Enable_Python.ps1
 
 $waId = (Get-AzWebApp -Name $waName -ResourceGroupName $rgName).Id
 $slotName = @{
@@ -45,6 +48,8 @@ $branch = @{
     dev = "develop";
     feat = "feature/az";
 }
+
+
 
 Read-Host "If everything looks cool, press ENTER to continue the script. Otherwise press CTRL+C..."
 
