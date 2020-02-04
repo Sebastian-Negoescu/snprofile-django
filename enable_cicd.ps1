@@ -37,7 +37,7 @@ Write-Host "Stop tripping - ain't no one showing the Token, let's be real now...
 ################################################
 
 . .\GetAzResources.ps1
-. .\Enable_Python.ps1
+. .\EnablePython.ps1
 
 $waId = (Get-AzWebApp -Name $waName -ResourceGroupName $rgName).Id
 $slotName = @{
