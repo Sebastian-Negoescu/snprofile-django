@@ -1,14 +1,8 @@
 myprofile/__pycache__/
 myjobs/__pycache__/
-<<<<<<< HEAD
-azure_infra/paas/.terraform/
-azure_infra/paas/secrets.tfvars
-azure_infra/paas/terraform.tfstate
-azure_infra/paas/plans/
-azure_infra/paas/terraform.tfstate.backup
-=======
 azure_infra/paas/.terraform
 azure_infra/paas/secrets.tfvars
 azure_infra/paas/terraform.tfstate
 azure_infra/paas/.terraform/plugins/darwin_amd64/terraform-provider-azurerm_v1.42.0_x4
->>>>>>> 5b9ff6c349ca5c8d201b5a1b5230b9f255c962e6
+secrets.txt
+terraform_output.txt
