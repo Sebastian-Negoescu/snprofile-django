@@ -5,4 +5,4 @@ from .models import Job
 
 @admin.register(Job)
 class MyJobs(admin.ModelAdmin):
-    list_display = ["title", "company"]
+    list_display = ["id", "title", "company"]
