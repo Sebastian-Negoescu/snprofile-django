@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding: 0% 5% 0% 5%;
 }
 
 abbr[title],
@@ -381,6 +382,7 @@ h4, .h4 {
 
 h5, .h5 {
   font-size: 1.25rem;
+  padding: 5% 5% 0% 5%;
 }
 
 h6, .h6 {
@@ -4737,6 +4739,8 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  border-style: double;
+  border-color: currentColor;
 }
 
 .card > hr {
@@ -10104,7 +10108,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #cccccc !important;
 }
 
 .text-black-50 {
