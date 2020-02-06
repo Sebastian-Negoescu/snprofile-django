@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^$", views.home, name="home"),
     url(r"^myjobs/(\d+)/", views.job_detail, name="job_detail"),
+    url(r"^about", views.about, name="about")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

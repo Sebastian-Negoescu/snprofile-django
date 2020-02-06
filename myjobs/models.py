@@ -12,3 +12,11 @@ class Job(models.Model):
     
     def __str__(self):
         return f"{self.title} at {self.company}"
+
+class Technology(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.TextField(max_length=500)
+    img = models.ImageField(upload_to="media/", null=True, blank=False, default="/media/unavailable.jpg")
+
+    def __str__(self):
+        return f"{self.name}"
