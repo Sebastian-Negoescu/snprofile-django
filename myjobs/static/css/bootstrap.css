@@ -66,6 +66,16 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
+.myfooter {
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  display: contents;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color:  #007bff;
+}
 
 hr {
   box-sizing: content-box;
