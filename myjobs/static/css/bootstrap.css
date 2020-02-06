@@ -77,6 +77,25 @@ body {
   color:  #007bff;
 }
 
+.home-button {
+  background-color: #007bff;
+  border-radius: 25% 25% 40% 40%;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.intro {
+  margin: 10px;
+  outline: 1px;
+  color: #FFF;
+  height:auto;
+  overflow:auto;
+  }
+  ​.my-img{
+  float:auto;
+  height:auto;
+  }​
+
 hr {
   box-sizing: content-box;
   height: 0;

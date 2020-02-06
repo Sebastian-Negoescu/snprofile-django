@@ -1,9 +1,69 @@
 <!DOCTYPE html>
+<html lang="en">
 {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h4 class="key">Title: <span class="value">{{ job.title }}</span></h4>
-</body>
+    <title>Sebi Negoescu's Profile</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}">
+  </head>
+
+  <body>
+
+    <main role="main">
+
+      <section class="jumbotron text-center" style="background-image: url(/static/images/background.jpg);">
+        <div class="container">
+            <h1 class="jumbotron-heading" style="font-style: italic; color:white">{{ job.title }}</h1>
+            <p class="lead text-muted">{{ job.company }}</p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+            <h3 style="text-decoration: underline;">Description</h3>
+            <p>{{ job.description|linebreaks }}</p>
+<!-- TO BE CONTINUED HOME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <div class="intro my-img">
+                <img src="{{ job.photo.url }}"
+            </div>
+        </div>
+          
+
+            <!-- <div class="col-md-4">
+              <a href="{% url 'job_detail' job.id %}">
+              <div class="card mb-4 box-shadow">
+                <h5>{{ job.title }}</h5>
+                <p>{{ job.company }}</p>
+                <img class="card-img-top" src="{{ job.photo.url }}">
+                <div class="card-body">
+                </div>
+              </div>
+              </a>
+            </div> -->
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+    <div class="card-footer" style="position:relative;">
+      <div class="myfooter" style="text-align: center; position:relative">
+        <input class="home-button" type="button" value="Home" onclick="javascript:history.go(-1)">
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/bootstrap.js' %}" ></script>
+    <script src="{% static 'jquery-3.4.1.min.js' %}" ></script>
+  </body>
+</html>
