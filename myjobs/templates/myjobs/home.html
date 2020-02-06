@@ -56,11 +56,21 @@
       </div>
 
     </main>
+    <div class="card-footer" style="position:relative;">
+      <div class="myfooter" style="text-align: center; position:relative">
+        <p>If you're a tech savvy, click  
+          <a href="{% url 'about' %}" style="font-weight: bold;">
+            here
+          </a>
+          to learn more about this webapp.
+        </p>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'js/bootstrap.js' %}" ></script>
-    <script src="{% static 'jquery-3.3.1.min.js' %}" ></script>
+    <script src="{% static 'jquery-3.4.1.min.js' %}" ></script>
   </body>
 </html>
