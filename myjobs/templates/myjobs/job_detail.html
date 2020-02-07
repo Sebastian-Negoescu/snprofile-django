@@ -22,17 +22,27 @@
         <div class="container">
             <h1 class="jumbotron-heading" style="font-style: italic; color:white">{{ job.title }}</h1>
             <p class="lead text-muted">{{ job.company }}</p>
+            <p class="lead text-muted">{{ job.get_time_dif }}</p>
         </div>
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
-            <h3 style="text-decoration: underline;">Description</h3>
-            <p>{{ job.description|linebreaks }}</p>
-            {% if job.projects %}
-            <h3 style="text-decoration: underline">Projects & Roles</h3>
-              <p>{{ job.projects|linebreaksbr }}</p>
-            {% endif %}
+          {% if job.end_date %}
+          <h3 style="text-decoration: underline;">Period:
+            <h4 style="font-size:16px; font-style: italic; text-decoration: none"> {{ job.start_date }} - {{ job.end_date }}</h4>
+          </h3>
+          {% else %}
+          <h3 style="text-decoration: underline;">Period:
+            <h4 style="font-size:16px; font-style: italic; text-decoration: none"> {{ job.start_date }} - Present</h4>
+          </h3>
+          {% endif %}
+          <h3 style="text-decoration: underline;">Description</h3>
+          <p>{{ job.description|linebreaks }}</p>
+          {% if job.projects %}
+          <h3 style="text-decoration: underline">Projects & Roles</h3>
+            <p>{{ job.projects|linebreaksbr }}</p>
+          {% endif %}
 <!-- TO BE CONTINUED HOME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <div class="mycustom-container">
               <img class="mycustom-image" src="{{ job.photo.url }}">
