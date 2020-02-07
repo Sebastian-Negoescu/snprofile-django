@@ -29,34 +29,21 @@
         <div class="container">
             <h3 style="text-decoration: underline;">Description</h3>
             <p>{{ job.description|linebreaks }}</p>
+            {% if job.projects %}
+            <h3 style="text-decoration: underline">Projects & Roles</h3>
+              <p>{{ job.projects|linebreaksbr }}</p>
+            {% endif %}
 <!-- TO BE CONTINUED HOME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <div class="intro my-img">
-                <img src="{{ job.photo.url }}"
+            <div class="mycustom-container">
+              <img class="mycustom-image" src="{{ job.photo.url }}">
             </div>
-        </div>
-          
-
-            <!-- <div class="col-md-4">
-              <a href="{% url 'job_detail' job.id %}">
-              <div class="card mb-4 box-shadow">
-                <h5>{{ job.title }}</h5>
-                <p>{{ job.company }}</p>
-                <img class="card-img-top" src="{{ job.photo.url }}">
-                <div class="card-body">
-                </div>
-              </div>
-              </a>
-            </div> -->
-
-          </div>
-
         </div>
       </div>
 
     </main>
-    <div class="card-footer" style="position:relative;">
-      <div class="myfooter" style="text-align: center; position:relative">
-        <input class="home-button" type="button" value="Home" onclick="javascript:history.go(-1)">
+    <div class="mycustom-container">
+      <div class="mycustom-background">
+        <input class="mybutton-centered" type="button" value="Home" onclick="javascript:history.go(-1);">
       </div>
     </div>
 

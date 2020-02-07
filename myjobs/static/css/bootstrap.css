@@ -66,6 +66,39 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
+
+.mycustom-container {
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.mycustom-background {
+  width: 100%;
+  height: auto;
+  background-color: #f8f9fa;
+}
+.mycustom-image {
+  width: 80%;
+  height: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-left: 10%;
+  margin-right: 10;
+}
+
+.mybutton-centered {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 20%;
+  text-align: center;
+  font-size: 18px;
+  background-color: #007bff;
+  border-style: none;
+  border-radius: 25%;
+  color: #ffffff;
+}
+
 .myfooter {
   text-align: center;
   font-style: italic;
@@ -79,7 +112,9 @@ body {
 
 .home-button {
   background-color: #007bff;
-  border-radius: 25% 25% 40% 40%;
+  text-align: center;
+  border-style: none;
+  border-radius: 25%;
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -4757,11 +4792,11 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
-
+/* MODIFIED TO HIDE THE MARGINS AND MAKE EVERYTHING LOOK MORE NEAT */
 .card {
   position: relative;
   display: -ms-flexbox;
-  display: flex;
+  display: contents;
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;

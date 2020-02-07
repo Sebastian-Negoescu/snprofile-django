@@ -5,9 +5,10 @@ class Job(models.Model):
     title = models.CharField(max_length=30)
     company = models.CharField(max_length=30)
     location = models.CharField(max_length=30)
-    description = models.TextField(max_length=300)
+    description = models.TextField(max_length=5000)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=True, null=True)
+    projects = models.TextField(max_length=5000, blank=True, null=True)
     photo = models.ImageField(upload_to="media/", null=True, blank=False, default="/media/unavailable.jpg")
     
     def __str__(self):
