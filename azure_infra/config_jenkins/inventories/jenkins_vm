@@ -1,0 +1,2 @@
+[jenkins_vm]
+jenkins ansible_ssh_host=13.80.248.95 ansible_ssh_user=ansible

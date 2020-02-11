@@ -1,0 +1,29 @@
+---
+
+- name: "Stop Jenkins"
+  service:
+    name: "jenkins"
+    state: "stopped"
+  become: true
+
+- name: "Make Jenkins accessible through port 80"
+  replace:
+    path: "/etc/default/jenkins"
+    regexp: "^HTTP_PORT=8080$"
+    replace: "HTTP_PORT=80"
+  become: true
+
+- name: "Restart the Jenkins server"
+  service:
+    name: "jenkins"
+    state: "restarted"
+  become: true
+
+- name: "Wait for the service to be truly up"
+  wait_for:
+    host: "localhost"
+    port: "80"
+    delay: "20"
+    timeout: "300"
+
+...

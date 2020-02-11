@@ -1,0 +1,12 @@
+---
+
+- name: "Ensure dependencies are installed"
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+      - gnupg
+    state: present
+  become: true
+
+...

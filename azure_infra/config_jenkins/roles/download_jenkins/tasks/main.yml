@@ -1,0 +1,17 @@
+---
+
+- name: "Download the appropriate Jenkins version"
+  get_url:
+    url: "{{ jenkins_pkg_url }}/jenkins_{{ jenkins_version }}_all.deb"
+    dest: "/tmp/jenkins_{{ jenkins_version }}_all.deb"
+  when: jenkins_version is defined
+  become: true
+
+- name: "Verify if we downloaded a specific version of Jenkins"
+  stat:
+    path: "/tmp/jenkins_{{ jenkins_version }}_all.deb"
+  register: specific_version
+  when: jenkins_version is defined
+  become: true
+
+...

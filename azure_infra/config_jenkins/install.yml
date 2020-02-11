@@ -1,0 +1,12 @@
+---
+
+- hosts: jenkins_vm
+  roles:
+    - role: "ensure_dependencies"
+    - role: "jenkins_repo"
+    - role: "download_jenkins"
+    - role: "install_jenkins"
+    - role: "access_port"
+  become: true
+
+...
