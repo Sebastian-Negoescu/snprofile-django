@@ -3,7 +3,10 @@ terraform_output.txt
 myprofile/__pycache__/
 myjobs/__pycache__/
 azure_infra/paas/.terraform/
+azure_infra/iaas/.terraform/
 azure_infra/paas/secrets.tfvars
+azure_infra/iaas/secrets.tfvars
 azure_infra/paas/terraform.tfstate
+azure_infra/iaas/terraform.tfstate
 azure_infra/paas/plans/
 azure_infra/paas/terraform.tfstate.backup
