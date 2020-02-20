@@ -7,7 +7,7 @@ pipeline {
     }
     agent {
         node {
-            label "${AGENT_BUILDER}"
+            label "${AGENT_LABEL}"
             customWorkspace "/app/jenkins/jenkins_home/workspace/${JOB_NAME}/${BUILD_NUMBER}"
         }
     }
