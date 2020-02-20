@@ -2,6 +2,8 @@ pipeline {
     environment {
         AGENT_LABEL = "my-builder"
         JSON_LOG_OUTPUT_DIR = "${WORKSPAC}/execution_log"
+        ANSIBLE_FORCE_COLOR='true'
+        MAVEN_OPTS = '-Djansi.force=true'
     }
     agent {
         node {
