@@ -11,9 +11,9 @@ pipeline {
             customWorkspace "/app/jenkins/jenkins_home/workspace/${JOB_NAME}/${BUILD_NUMBER}"
         }
     }
-    options {
-        ansiColor('xterm')
-    }
+    // options {
+    //     ansiColor('xterm')
+    // }
     stages {
         stage('Checkout SCM') {
             steps {
