@@ -12,12 +12,13 @@ pipeline {
         ANSIBLE_FORCE_COLOR='true'
         MAVEN_OPTS = '-Djansi.force=true'
     }
-    agent {
-        node {
-            label "${AGENT_LABEL}"
-            customWorkspace "/app/jenkins/jenkins_home/workspace/${JOB_NAME}/${BUILD_NUMBER}"
-        } 
-    }
+    // agent {
+    //     node {
+    //         label "${AGENT_LABEL}"
+    //         customWorkspace "/app/jenkins/jenkins_home/workspace/${JOB_NAME}/${BUILD_NUMBER}"
+    //     } 
+    // }
+    agent any
     // options {
     //     ansiColor('xterm')
     // }
