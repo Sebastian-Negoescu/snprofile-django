@@ -1,9 +1,9 @@
-node {
-    stage('Choose Label') {
-        AGENT_LABEL = 'my-builder'
-        echo "Agent is: $AGENT_LABEL"
-    }
-}
+// node {
+//     stage('Choose Label') {
+//         AGENT_LABEL = 'my-builder'
+//         echo "Agent is: $AGENT_LABEL"
+//     }
+// }
 
 pipeline {
     environment {
