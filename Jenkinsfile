@@ -35,5 +35,12 @@ pipeline {
                 }
             }
         }
+        stage("Deploy to Azure Web App - FEATURE Slot") {
+            steps {
+                dir('./') {
+                    azureWebAppPublish azureCredentialsId: 'AzDevOps', resourceGroup: '${RG_NAME}', appName: '${WEBAPP_NAME}', slotName: '${FEATURE_SLOT}', sourceDirectory: './', filePath: '**', targetDirectory: ''
+                }
+            }
+        }
     }
 }
