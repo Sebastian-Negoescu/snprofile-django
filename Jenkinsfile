@@ -43,13 +43,6 @@ pipeline {
                 sh 'printenv'
             }
         }
-        stage("Confirm everything is in place") {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    input "Approve/Deny further processing of the pipeline."
-                }
-            }
-        }
         stage("Deploy to Azure Web App - FEATURE Slot") {
             steps {
                 dir('./') {
@@ -57,5 +50,12 @@ pipeline {
                 }
             }
         }
+        stage("Confirm everything is okay") {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    input "Approve/Deny further processing of the pipeline."
+                }
+            }
+        }        
     }
 }
