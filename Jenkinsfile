@@ -5,7 +5,7 @@ pipeline {
     environment {
         RG_NAME = "snprofile-django-rg"
         WEBAPP_NAME = "snprofile-django-app"
-        DEVELOP_SLOT = "slot"
+        DEVELOP_SLOT = "develop"
         FEATURE_SLOT = "feature"
     }
     stages {

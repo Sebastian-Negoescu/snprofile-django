@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -67,6 +67,70 @@ body {
   outline: 0 !important;
 }
 
+.mycustom-container {
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.mycustom-background {
+  width: 100%;
+  height: auto;
+  background-color: #f8f9fa;
+}
+.mycustom-image {
+  width: 80%;
+  height: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-left: 10%;
+  margin-right: 10;
+}
+
+.mybutton-centered {
+  position: absolute;
+  left: 42.5%;
+  top: 50%;
+  width: 15%;
+  text-align: center;
+  font-size: 18px;
+  background-color: #007bff;
+  border-style: none;
+  border-radius: 20%;
+  color: #ffffff;
+}
+
+.myfooter {
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  display: contents;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color:  #007bff;
+}
+
+.home-button {
+  background-color: #007bff;
+  text-align: center;
+  border-style: none;
+  border-radius: 25%;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.intro {
+  margin: 10px;
+  outline: 1px;
+  color: #FFF;
+  height:auto;
+  overflow:auto;
+  }
+  ​.my-img{
+  float:auto;
+  height:auto;
+  }​
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -81,6 +145,8 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding: 0% 5% 0% 5%;
+  text-align: center;
 }
 
 abbr[title],
@@ -194,6 +260,7 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  border-radius: 50%;
 }
 
 svg {
@@ -371,7 +438,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 1.75rem;
+  font-size: 1.3rem;
 }
 
 h4, .h4 {
@@ -380,6 +447,8 @@ h4, .h4 {
 
 h5, .h5 {
   font-size: 1.25rem;
+  padding: 5% 5% 0% 5%;
+  text-align: center;
 }
 
 h6, .h6 {
@@ -4723,11 +4792,11 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
-
+/* MODIFIED TO HIDE THE MARGINS AND MAKE EVERYTHING LOOK MORE NEAT */
 .card {
   position: relative;
   display: -ms-flexbox;
-  display: flex;
+  display: contents;
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
@@ -4736,6 +4805,8 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  border-style: double;
+  border-color: currentColor;
 }
 
 .card > hr {
@@ -5242,7 +5313,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   background-color: #e9ecef;
   border-radius: 0.3rem;
 }
@@ -10103,7 +10174,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #cccccc !important;
 }
 
 .text-black-50 {
