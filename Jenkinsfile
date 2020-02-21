@@ -21,7 +21,6 @@ pipeline {
                     branches: [[name: 'feature/az']],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'CleanBeforeCheckout']],
-                    submoduleCfg: [[]],
                     userRemoteConfigs: [[
                         url: 'https://github.com/Sebastian-Negoescu/snprofile-django.git'
                     ]]
