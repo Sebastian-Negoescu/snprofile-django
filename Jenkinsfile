@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
         RG_NAME = "snprofile-django-rg"
-        WEBAPP_NAME = "snprofile-django"
+        WEBAPP_NAME = "snprofile-django-app"
         DEVELOP_SLOT = "slot"
         FEATURE_SLOT = "feature"
     }
@@ -32,6 +32,21 @@ pipeline {
                 dir('./') {
                     sh 'pwd'
                     sh 'ls -la'
+                }
+            }
+        }
+        stage("Check that Environment Variables are in place") {
+            steps {
+                echo "Resource Group is: ${RG_NAME}"
+                echo "Web App's name is: ${WEBAPP_NAME}"
+                echo "My 2 slots are: ${FEATURE_SLOT} and ${DEVELOP_SLOT}"
+                sh 'printenv'
+            }
+        }
+        stage("Confirm everything is in place") {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    input "Approve/Deny further processing of the pipeline."
                 }
             }
         }
