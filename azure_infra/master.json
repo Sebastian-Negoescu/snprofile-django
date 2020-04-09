@@ -1,0 +1,81 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string",
+            "defaultValue": "dummy"
+        },
+        "armContainer": {
+            "type": "string",
+            "defaultValue": "https://sebinegovwinfra.blob.core.windows.net/armtemplates/"
+        },
+        "containerSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Container's SAS Token - provided during deployment."
+            }
+        }
+    },
+    "variables": {
+        "commonPath": "azure_infra/",
+        "aspTemplate": "asp.json",
+        "webappTemplate": "webapp.json"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-05-01",
+            "name": "Linked_ASP",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('armContainer'), variables('commonPath'), variables('aspTemplate'), parameters('containerSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "prefix": {
+                        "value": "[parameters('prefix')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "Linked_WebApp",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('armContainer'), variables('commonPath'), variables('webappTemplate'), parameters('containerSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "prefix": {
+                        "value": "[parameters('prefix')]"
+                    },
+                    "aspId": {
+                        "value": "[reference('Linked_ASP').outputs.aspId.value]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "Linked_ASP"
+            ]
+        }
+    ],
+    "outputs": {
+        "aspLinked": {
+            "type": "string",
+            "value": "[reference('Linked_ASP').outputs.aspId.value]"
+        },
+        "webappLinked": {
+            "type": "string",
+            "value": "[reference('Linked_WebApp').outputs.webappId.value]"
+        },
+        "webappLinkedHostname": {
+            "type": "string",
+            "value": "[reference('Linked_WebApp').outputs.hostname.value]"
+        }
+    }
+}

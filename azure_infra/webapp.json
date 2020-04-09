@@ -1,0 +1,42 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "aspId": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "webappName": "[concat(parameters('prefix'), '-webapp')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2019-08-01",
+            "name": "[variables('webappName')]",
+            "location": "[parameters('location')]",
+            "kind": "app",
+            "properties": {
+                "serverFarmId": "[parameters('aspId')]",
+                "LinuxFxVersion": "python|3.7"
+            }
+        }
+    ],
+    "outputs": {
+        "webappId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Web/sites', variables('webappName'))]"
+        },
+        "hostname": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Web/sites', variables('webappName')).DefaultHostName]"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string"
+        },
+        "skuName": {
+            "type": "string",
+            "defaultValue": "S1"
+        },
+        "skuTier": {
+            "type": "string",
+            "defaultValue": "Standard"
+        },
+        "skuCapacity": {
+            "type": "int",
+            "allowedValues": [
+                1,
+                2,
+                3
+            ],
+            "defaultValue": 1
+        }
+    },
+    "variables": {
+        "aspName": "[concat(parameters('prefix'), '-asp')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2019-08-01",
+            "name": "[variables('aspName')]",
+            "location": "[resourceGroup().location]",
+            "kind": "linux",
+            "sku": {
+                "name": "[parameters('skuName')]",
+                "tier": "[parameters('skuTier')]",
+                "capacity": "[parameters('skuCapacity')]"
+            },
+            "properties": {
+                "reserved": true
+            }
+        }
+    ],
+    "outputs": {
+        "aspId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Web/serverfarms', variables('aspName'))]"
+        }
+    }
+}
